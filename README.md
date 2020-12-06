@@ -15,8 +15,6 @@
 * internet network
 * Postgres
 
-
-
 ## BDD
 
 1. As a user, I would like to view the blog posts on the site
