@@ -1,9 +1,7 @@
 from . import db, login_manager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
-# import datetime
-# from datetime import datetime
-# datetime.utcnow()
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -100,7 +98,7 @@ class Comment(db.Model):
     def get_comments(cls, id):
         comments = Comment.query.filter_by(blog_id = id).all()
         return comments
-        
+
     def __repr__(self):
         return f'Comment{self.comment}'
 
