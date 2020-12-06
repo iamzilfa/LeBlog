@@ -1,0 +1,3 @@
+Hello {{ubscriber.name}}
+Welcome to perso blog.
+Thanks for subcribing to our app. You can enjoy all blogs.

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<script src="https://kit.fontawesome.com/83d474e45f.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron"
+    style="background-image:url('https://res.cloudinary.com/zilfa/image/upload/v1607159696/leblog_k0y1nl.jpg');background-size: cover; height: 120vh; background-position: center;margin-top: -0.55cm;">
+    <div style="margin-top: 70px;">
+        <h1
+            style="margin-left:340px;letter-spacing: 5px;font-size: 150px;font-family: 'Euphoria Script', cursive;color: rgb(27, 87, 3);">
+            LeBlog</h1>
+            <p style="color: black;margin-left:423px;font-size:15px;font-style: italic;font-family: 'Times New Roman', Times, serif;margin-top: -11.5mm;">Feel free to Post and leave comments... </p>
+    </div>
+    <div class="col-md-4" style="margin-top: 160px">
+        <blockquote
+            style="background: #f9f9f913;color: black;font-family: 'Times New Roman', Times, serif;text-align: center;">
+            <p style="font-size:17px"><i class="fas fa-quote-left"></i><i> {{ quotes.quote }} </i><i
+                    class="fas fa-quote-right"></i></p>
+            <p style="font-size:17px">__{{ quotes.author}}</p>
+        </blockquote>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+
+    <div class="card-text">
+
+        <div class="tab-content">
+            <div class="container tab-pane active"><br>
+                {{ macro.displayBlog(blogs)}}
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+    <div class="jumbotron"
+        style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/zilfa/image/upload/v1607169079/footerPou_pep0id.jpg');background-size: cover;background-position: center;height: 80vh;">
+
+        <div style="margin-top: 50px;">
+            <h3
+                style="color: white; text-align: center;font-family: 'Times New Roman', Times, serif;font-size: 20px;font-weight: bold;">
+                Subscribe</h3>
+            <hr style="width:110px;text-align: center;border: 1px solid white;margin-bottom:3mm; margin-top:3mm;">
+            <p style="text-align: center;color: white;font-family: 'Times New Roman', Times, serif;font-size: 16px;">
+                Stay updated every moment</p>
+
+            <form action="" method="post">
+                <p style="text-align: center; font-family: 'Times New Roman', Times, serif;font-size: 16px;">
+                    {{form.email(size=40,placeholder='Enter a valid email address...')}}
+                    <span>{{form.submit()}}</span>
+                </p>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

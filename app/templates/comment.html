@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container-fluid"
+    style="background-image:url('https://res.cloudinary.com/zilfa/image/upload/v1600501529/oneonly_nyungwe_house_hthiax.jpg');background-size: cover; height: 89.4vh; background-position: center;margin-top: -0.55cm;">
+   
+    <div class="row" style="color:white;margin-top: 50px;font-weight: bold;">
+
+        {% if comments %}
+
+        <h3 class="text-center" id="coms"> All Post Comments</h3>
+
+        <div class="col-md-6 commentform">
+            {{wtf.quick_form(form)}}
+        </div>
+
+        {% for comment in comments %}
+        <div class="card w-90 mb-3">
+
+            <div class="card-body">
+                <p class="card-title">{{comment.comment }}</p>
+                <h5>{{comment.blogs.title | upper}}</h5>   
+            </div>
+        </div>
+        {% endfor %}
+
+        {%else%}
+        <div class="card w-90 mb-3">
+            <div class="card-body">
+                <p class="card-title"> No Comments for this Post Yet</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{wtf.quick_form(form)}}
+        </div>
+        {% endif %}
+
+        {% endblock %}
+    </div>
+</div>
