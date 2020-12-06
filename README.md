@@ -37,7 +37,7 @@
 ## Support and contact details
 If anyone need support concerning my project or anything related, just reach out to zilcyam@gmail.com
  
-<!-- [Here is the Link]( https://zilpitchapp.herokuapp.com/ "Perso_Blog") -->
+[Here is the Link]( https://zilfablog.herokuapp.com/ "Perso_Blog")
 
 ### License
 
