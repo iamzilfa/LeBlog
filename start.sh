@@ -1,5 +1,6 @@
 export SECRET_KEY=12345
 
+
 export MAIL_USERNAME=iamzilfa@gmail.com
 export MAIL_PASSWORD=kigali123!
 
