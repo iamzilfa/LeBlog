@@ -3,73 +3,75 @@
 {% block content %}
 
 <div class="container-fluid">
-<div class=" row">
-    <div class="col-md-4">
-        {% if user.profile_pic_path %}
-        <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail"
-            style="width: 450px;height: 400px;">
-        {%else%}
-        <p>No profile picture</p>
-        {% endif %}
-        {% if user == current_user %}
-        <form action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype="multipart/form-data">
-            <input type="file" name="photo" class="form-control" style="width: 425px;" required>
-            <input type="submit" class="btn btn-info btn-sm">
-        </form>
-        {% endif %}
-    </div>
-    <!-- displaying  Username-->
-    <div class="col-md-2">
-        <div class="jumbotron" style="height: 390px; width: 200px;background-color: rgba(231, 225, 225, 0.479);">
-            <h3>
-                <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">
-                    Name:</span>
-                <ul> <span
-                        style="font-family: 'Sansita Swashed', cursive; font-size: 18px;color: rgb(29, 29, 202);">{{user.username| capitalize}}
-                    </span></ul>
-            </h3>
-            <br>
-            <br>
+    <div class=" row">
+        <div class="col-md-4">
+            {% if user.profile_pic_path %}
+            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail"
+                style="width: 450px;height: 400px;">
+            {%else%}
+            <p>No profile picture</p>
+            {% endif %}
+            {% if user == current_user %}
+            <form action="{{url_for('main.update_pic',name=user.username)}}" method="post"
+                enctype="multipart/form-data">
+                <input type="file" name="photo" class="form-control" style="width: 425px;" required>
+                <input type="submit" class="btn btn-info btn-sm">
+            </form>
+            {% endif %}
+        </div>
+        <!-- displaying  Username-->
+        <div class="col-md-2">
+            <div class="jumbotron" style="height: 390px; width: 200px;background-color: rgba(231, 225, 225, 0.479);">
+                <h3>
+                    <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">
+                        Name:</span>
+                    <ul> <span
+                            style="font-family: 'Sansita Swashed', cursive; font-size: 18px;color: rgb(29, 29, 202);">{{user.username| capitalize}}
+                        </span></ul>
+                </h3>
+                <br>
+                <br>
+                <hr style="border: 1px solid black;">
+                <br>
+                <!--Displaying user bio-->
+                {% if user.bio %}
+                <p> <span style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">Bio:
+                    </span>
+                <ul><span style="font-family: 'Sansita Swashed', cursive;font-size: 18px;color: rgb(29, 29, 202);">
+                        {{user.bio}}</span></ul>
+                </p>
+                {%else%}
+                <p> {{user.username| capitalize}} has no bio </p>
+                {% endif %}
+
+            </div>
+            {% if user == current_user %}
+            <a class="btn btn-primary" style="margin-top:-30px; width: 200px;"
+                href="{{url_for('main.update_profile',name=user.username)}}">Edit bio</a>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            {% if current_user %}
+            <h3 style="text-align: center; font-weight: bold;color: blue;font-family: 'Yeseva One', cursive;"> I HAVE
+                <span style="color: red;">{{user.blogs.count()}} </span>BLOG POSTS</h3>
+
             <hr style="border: 1px solid black;">
             <br>
-            <!--Displaying user bio-->
-            {% if user.bio %}
-            <p> <span style="font-family: 'Times New Roman', Times, serif;font-weight: bold;">Bio:
-                </span>
-            <ul><span style="font-family: 'Sansita Swashed', cursive;font-size: 18px;color: rgb(29, 29, 202);">
-                    {{user.bio}}</span></ul>
-            </p>
-            {%else%}
-            <p> {{user.username| capitalize}} has no bio </p>
-            {% endif %}
-
-        </div>
-        {% if user == current_user %}
-        <a class="btn btn-primary" style="margin-top:-30px; width: 200px;"
-            href="{{url_for('main.update_profile',name=user.username)}}">Edit bio</a>
-        {% endif %}
-    </div>
-
-    <div class="col-md-6">
-        {% if current_user %}
-        <h3 style="text-align: center; font-weight: bold;color: blue;font-family: 'Yeseva One', cursive;"> I HAVE <span style="color: red;">{{user.blogs.count()}} </span>BLOG POSTS</h3>
-        
-        <hr style="border: 1px solid black;">
-        <br>
-        {% for i in blogs %}
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <div class="card-body">
-                    <p><img src="{{i.image}}" width="175" height="120"></p>
-                    <h4 style="font-weight: bold;font-family: 'Times New Roman', Times, serif;text-align: center;">
-                        {{i.title | capitalize}}</h4>
+            {% for i in blogs %}
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="card-body">
+                        <p><img src="{{i.image}}" width="175" height="120"></p>
+                        <h4 style="font-weight: bold;font-family: 'Times New Roman', Times, serif;text-align: center;">
+                            {{i.title | capitalize}}</h4>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+            {% else%}
+            <h4>you have 0 blog</h4>
+            {% endif %}
         </div>
-        {% endfor %}
-        {% else%}
-        <h4>you have 0 blog</h4>
-        {% endif %}
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
