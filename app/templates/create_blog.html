@@ -3,11 +3,14 @@
 
 {% block content %}
 
-<div class="container-fluid" style="background-image:url('https://res.cloudinary.com/zilfa/image/upload/v1607280538/alexander-sinn-6YV8V1oxX-0-unsplash_mqnunh.jpg'); background-size: cover; height: 89.4vh; background-position: center;margin-top: -0.55cm;">
+<div class="container-fluid"
+    style="background-image:url('https://res.cloudinary.com/zilfa/image/upload/v1607280538/alexander-sinn-6YV8V1oxX-0-unsplash_mqnunh.jpg'); background-size: cover; height: 89.4vh; background-position: center;margin-top: -0.55cm;">
     <div class="row">
         <div class="col-md-2"> </div>
         <div class="col-md-8">
-            <h3 style="font-weight: bold;font-size: 50px;margin-top: 80px;letter-spacing:2px;font-family: 'Times New Roman', Times, serif; color: black;text-align: center;">Create A Post</h3>
+            <h3
+                style="font-weight: bold;font-size: 50px;margin-top: 80px;letter-spacing:2px;font-family: 'Times New Roman', Times, serif; color: black;text-align: center;">
+                Create A Post</h3>
             <br>
             <div style="color: white; background-color: transparent;">
                 {{wtf.quick_form(form)}}
