@@ -1,14 +1,15 @@
 import os
 
 class Config:
-    '''
-    General configuration parent class
-    '''
+    
+    
     QUOTES_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:123456@localhost/perso_blog'
     
+
+
     # email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
