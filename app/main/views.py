@@ -43,6 +43,7 @@ def new_blog():
 
 
 @main.route('/comment/<int:blog_id>', methods = ['GET','POST'])
+@login_required
 def comment(blog_id):
     form = CommentForm()
     blogs = Blog.query.get(blog_id)
@@ -75,7 +76,7 @@ def delete(id):
 @login_required
 def update_blog(id):
     blogs = Blog.query.filter_by(id = id).first()
-    if blogs is None:
+    if blogs.user != current_user:
         abort(404)
     form = UpdateBlogForm()
     if form.validate_on_submit():
