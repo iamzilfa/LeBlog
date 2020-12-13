@@ -8,26 +8,35 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url_for('main.index')}}" style="font-family: 'Euphoria Script', cursive;font-size: 25px;margin-top: -0.10cm; font-weight: bold;letter-spacing: 1px;color: rgb(2, 88, 2);"><i class="fas fa-blog"></i>LeBlog</a>
+            <a class="navbar-brand" href="{{url_for('main.index')}}"
+                style="font-family: 'Euphoria Script', cursive;font-size: 25px;margin-top: -0.10cm; font-weight: bold;letter-spacing: 1px;color: rgb(2, 88, 2);"><i
+                    class="fas fa-blog"></i>LeBlog</a>
         </div>
         <div class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
-                <li><a href="{{url_for('main.index')}}" style="color: black;font-size: 15px;"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="{{url_for('main.index')}}" style="color: black;font-size: 15px;"><i
+                            class="fas fa-home"></i>Home</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li><a href="{{url_for('main.profile',name=current_user.username)}}" style="color: black;font-size: 15px;"
-                        ><span class="glyphicon glyphicon-user"></span> {{current_user.username | capitalize}}</a></li>
-                <li><a href="{{url_for('auth.logout')}}" style="color: black;font-size: 15px;"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+                <li><a href="{{url_for('main.profile',name=current_user.username)}}"
+                        style="color: black;font-size: 15px;"><span class="glyphicon glyphicon-user"></span>
+                        {{current_user.username | capitalize}}</a></li>
+                <li><a href="{{url_for('auth.logout')}}" style="color: black;font-size: 15px;"><span
+                            class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
                 {% else %}
-                <li><a href="{{url_for('auth.login')}}" style="color: black;font-size: 15px;"><span class="glyphicon glyphicon-log-in" ></span> Sign in</a></li>
-                
+                <li><a href="{{url_for('auth.login')}}" style="color: black;font-size: 15px;"><span
+                            class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+
                 {%endif%}
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('main.new_blog')}}" style="margin-top:-0.10cm;font-size: 15px;"><span class="btn btn-success btn-sm" style="font-size: 15px;background-color: rgb(6, 83, 6);font-family: 'Times New Roman', Times, serif;">Post Free</span></a>
+                    <a class="nav-link" href="{{url_for('main.new_blog')}}"
+                        style="margin-top:-0.10cm;font-size: 15px;"><span class="btn btn-success btn-sm"
+                            style="font-size: 15px;background-color: rgb(6, 83, 6);font-family: 'Times New Roman', Times, serif;">Post
+                            Free</span></a>
                 </li>
                 {% endif %}
             </ul>

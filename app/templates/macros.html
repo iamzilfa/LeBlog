@@ -21,13 +21,17 @@
                         {{post.content}}</p>
                     <div style="margin-bottom: 5px;">
                         <span class="foot"><a href="{{url_for('main.comment',blog_id = post.id)}}"
-                            class="btn btn-outline-info btn-sm" style="margin-left: 10px;font-weight: bold;">Comment</a></span>
+                                class="btn btn-outline-info btn-sm"
+                                style="margin-left: 10px;font-weight: bold;">Comment</a></span>
                         <span class="foot" style="font-weight: bold;"><a
                                 href="{{url_for('main.update_blog',id = post.id)}}"
-                                class="btn btn-outline-warning btn-sm" style="margin-left: 60px;color: rgb(233, 157, 16);font-weight: bold;">Update</a></span> &nbsp;
+                                class="btn btn-outline-warning btn-sm"
+                                style="margin-left: 60px;color: rgb(233, 157, 16);font-weight: bold;">Update</a></span>
+                        &nbsp;
                         <span class="foot" style="font-weight: bold;"><a href="{{url_for('main.delete',id = post.id)}}"
-                                class="btn btn-outline-danger btn-sm" style="margin-left: 60px; color: red;font-weight: bold;">Delete</a></span>
-                       
+                                class="btn btn-outline-danger btn-sm"
+                                style="margin-left: 60px; color: red;font-weight: bold;">Delete</a></span>
+
                     </div>
                 </div>
             </div>
